@@ -1,1 +1,82 @@
 
+# Name: Akindu Ariyratna
+# Title: Dice Game
+# Date: Febuary 28th 2025
+# Description: This program creates a Dice game
+
+import random
+import pygame, sys
+
+pygame.display.init()
+
+# get pictures
+filename1 = "dice1.png"
+filename2 = "dice2.png"
+filename3 = "dice3.png"
+filename4 = "dice4.png"
+filename5 = "dice5.png"
+filename6 = "dice6.png"
+
+
+Dice1 = pygame.image.load(filename1)
+Dice2 = pygame.image.load(filename2)
+Dice3 = pygame.image.load(filename3)
+Dice4 = pygame.image.load(filename4)
+Dice5 = pygame.image.load(filename5)
+Dice6 = pygame.image.load(filename6)
+
+
+
+playing_again = "y"
+while playing_again == "y":
+    totals = 0
+    amount_turns = 0
+    while totals < 100 and amount_turns <= 20:
+        input("Press enter to Roll: ").upper()
+        die1 = random.randint(1,6)
+        die2 = random.randint(1,6)
+        print("Die 1:", die1)
+        print("Die 2:", die2)
+        if die1 == 1:
+            print(Dice1)
+        elif die1 == 2:
+            print(Dice2)
+        elif die1 == 3:
+            print(Dice3)
+        elif die1 == 4:
+            print(Dice4)
+        elif die1 == 5:
+            print(Dice5)
+        elif die1 == 6:
+            print(Dice6)
+
+        if die2 == 1:
+            print(Dice1)
+        elif die2 == 2:
+            print(Dice2)
+        elif die2 == 3:
+            print(Dice3)
+        elif die2 == 4:
+            print(Dice4)
+        elif die2 == 5:
+            print(Dice5)
+        elif die2 == 6:
+            print(Dice6)
+
+        sum = die1 + die2
+        if die1 == die2:
+            totals = totals - sum
+            print (sum)
+        else:
+            print(sum)
+            totals = totals + sum
+            amount_turns = amount_turns + 1
+            print(totals)
+
+    if totals >= 100 and amount_turns < 21:
+        print ("You Win!!")
+    else:
+        print ("You Lost!!")
+
+    playing_again = input("would you to play? again click y: ").lower()
+
